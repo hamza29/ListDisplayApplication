@@ -1,0 +1,66 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:4877014445566845859",
+      "lastPropertyId": "3:1853657671887364920",
+      "name": "PostModel",
+      "properties": [
+        {
+          "id": "1:6858589561873112613",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:7514209905512972897",
+          "name": "title",
+          "type": 9
+        },
+        {
+          "id": "3:1853657671887364920",
+          "name": "body",
+          "type": 9
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "2:7213508956582283807",
+      "lastPropertyId": "3:5059725579734371878",
+      "name": "PostModelLocalDb",
+      "properties": [
+        {
+          "id": "1:8043054142091810921",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:6884297663351341263",
+          "name": "title",
+          "type": 9
+        },
+        {
+          "id": "3:5059725579734371878",
+          "name": "body",
+          "type": 9
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "2:7213508956582283807",
+  "lastIndexId": "0:0",
+  "lastRelationId": "0:0",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [],
+  "retiredRelationUids": [],
+  "version": 1
+}
