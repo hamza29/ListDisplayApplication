@@ -8,10 +8,7 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.LinearLayout
-import android.widget.RelativeLayout
-import android.widget.TextView
+import android.widget.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.application.BaseActivity
@@ -26,9 +23,10 @@ import java.util.*
 
 
 class MainActivity : BaseActivity() {
-    var PostModeldbBox: Box<PostModel>? = null
     override var layoutRes: Int = R.layout.activity_main
+    var PostModeldbBox: Box<PostModel>? = null
     var recyclerView: RecyclerView? = null
+    var progressBar: ProgressBar? = null
     var search: EditText? = null
     var recyclerAdapter: CustomAdapter? = null
     var relative: RelativeLayout? = null
@@ -40,6 +38,7 @@ class MainActivity : BaseActivity() {
         recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         relative = findViewById<RelativeLayout>(R.id.relative)
         search = findViewById<EditText>(R.id.search)
+        progressBar = findViewById<ProgressBar>(R.id.progress)
 
         if (PostModeldbBox!!.all.size > 0) {
             arraylist = PostModeldbBox!!.all
@@ -50,6 +49,7 @@ class MainActivity : BaseActivity() {
             ).show()
             setData(arraylist)
         } else {
+            progressBar!!.visibility = View.VISIBLE
             Snackbar.make(
                 relative!!,
                 "Loading data from Api",
@@ -82,6 +82,7 @@ class MainActivity : BaseActivity() {
             ) {
 
                 if (response?.body() != null) {
+                    progressBar!!.visibility = View.GONE
                     PostModeldbBox!!.removeAll()
                     for (i in 0..response.body()!!.size - 1) {
                         val user = PostModel(
@@ -99,6 +100,7 @@ class MainActivity : BaseActivity() {
             }
 
             override fun onFailure(call: Call<List<PostModel>>?, t: Throwable?) {
+                progressBar!!.visibility = View.GONE
 
             }
         })
